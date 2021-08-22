@@ -1,0 +1,21 @@
+{
+  "name": "pure-js-slow-safari",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --progress --hot --open",
+    "start-local": "webpack-dev-server --env.local --progress --hot --open",
+    "build": "webpack -p"
+  },
+  "dependencies": {
+    "csv-parse": "^4.16.0",
+    "deck.gl": "^8.5.4",
+    "mapbox-gl": "^1.0.0",
+    "stats.js": "^0.17.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
