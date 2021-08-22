@@ -4,10 +4,6 @@ import mapboxgl from 'mapbox-gl';
 import parse from 'csv-parse/lib/sync';
 import Stats from 'stats.js';
 
-// source: Natural Earth http://www.naturalearthdata.com/ via geojson.xyz
-const AIR_PORTS =
-  'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_airports.geojson';
-
 const INITIAL_VIEW_STATE = {
   latitude: 52.52,
   longitude: 13.40,
@@ -57,9 +53,8 @@ export const deck = new Deck({
   layers: [
     new H3HexagonLayer({
       id: 'h3-hexagon-layer',
-      // data: 'berlin-pop-dencity-22k.csv',
       data: (async ()=>{
-        const res = await fetch('berlin-pop-density-22k.csv') // 22k rows
+        const res = await fetch('berlin-pop-density-22k.csv') // 22k rows, source https://www.worldpop.org/geodata/summary?id=44666
         if (res.ok) {
           const csv = await res.text()
           const data = parse(csv, {columns: true})
@@ -67,7 +62,7 @@ export const deck = new Deck({
         }
         return []
       })(),
-      pickable: true,
+      pickable: false,
       wireframe: false,
       filled: true,
       extruded: false,
